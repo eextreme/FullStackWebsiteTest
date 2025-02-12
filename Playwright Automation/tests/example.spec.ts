@@ -8,7 +8,7 @@ test('Login link to Facebook from Webtoon', async ({ page }) => {
   await page.getByRole('link',{name:'Continue with Facebook'}).click();
   await expect(page).toHaveTitle('Log into Facebook')
 
-  const info = await page.getByRole('link',{name:'Create'}).first().textContent()
+  const info = await page.locator('#blueBarDOMInspector').getByRole('button', { name: 'Create new account' }).innerText()
   console.log("Message is:"+info)
 
   // await page.getByRole('textbox',{name:'email'}).fill('')
